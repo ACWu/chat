@@ -1,5 +1,5 @@
 # OSU CS 372 Winter 2023
-# Programming Project 1 Part 1 - Using a socket to GET a file
+# Programming Project 4 - Game Classes
 # Student Name: Anthony Wu
 # Student ID: wuant
 
@@ -32,13 +32,13 @@ class Board():
         """Checks if the move the player just made, made him/her win the game"""
         for a, b, c in self._win_combinations:
             if self.board[a] == self.board[b] == self.board[c]:
-                print(f"Game over, player {player} won the game")
+                print(f"Game over, {player} won the game")
                 self.game_over = True
 
     def update(self, input, choice):
         """Update the current board"""
         self.board[input] = choice
-        os.system("clear")
+        #os.system("clear")
         self.draw_board()
         self.check_if_won(choice)
 
@@ -54,12 +54,12 @@ class Board():
 
 class TicTacToe():
     def __init__(self):
-        os.system("clear")
+        #os.system("clear")
         self.board = Board()
         self.player_1_char = ""
         self.player_2_char = ""
         self.corret_choice = False
-        self.get_player_char()
+        #self.get_player_char()
 
     def reset(self):
         """Resets the internal state to prepare for a new game"""
@@ -84,12 +84,13 @@ class TicTacToe():
                 break
             else:
                 print("ERROR - input has to be either X or O!")
-        os.system("clear")
+        #os.system("clear")
+        return self.player_1_char
 
     def get_player_input(self, player_char):
         while True:
             while True:
-                x = input(f"{player_char} Where do you want to place your piece?")
+                x = input(f"{player_char}, where do you want to place your piece? ")
                 if x.isdigit():
                     x = int(x)
                     break
@@ -130,15 +131,16 @@ class TicTacToe():
             if self.check_tie():
                 break
 
+if __name__ == "__main__":
 
-while True:
-    TicTacToe().run()
+    while True:
+        TicTacToe().run()
 
-    user_input = "a"
-    while user_input not in "ny":
-        user_input = input("Play again? (y/n)").lower()
+        user_input = "a"
+        while user_input not in "ny":
+            user_input = input("Play again? (y/n)").lower()
 
-    if user_input == "y":
-        continue
-    else:
-        break
+        if user_input == "y":
+            continue
+        else:
+            break

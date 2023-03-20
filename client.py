@@ -1,12 +1,12 @@
 # OSU CS 372 Winter 2023
-# Programming Project 1 Part 1 - Using a socket to GET a file
+# Programming Project 4 - Client Chat
 # Student Name: Anthony Wu
 # Student ID: wuant
 
 import socket
 
 HOST = "localhost"  # The server's hostname or IP address
-PORT = 65432  # The port used by the server
+PORT = 3861  # The port used by the server
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.connect((HOST, PORT))

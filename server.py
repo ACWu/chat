@@ -1,12 +1,12 @@
 # OSU CS 372 Winter 2023
-# Programming Project 4  - Client / Server Chat
+# Programming Project 4  - Server Chat
 # Student Name: Anthony Wu
 # Student ID: wuant
 
 import socket
 
 HOST = "localhost"  # Standard loopback interface address (localhost)
-PORT = 65432  # Port to listen on (non-privileged ports are > 1023)
+PORT = 3861  # Port to listen on (non-privileged ports are > 1023)
 
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
