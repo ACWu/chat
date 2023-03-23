@@ -2,6 +2,10 @@
 # Programming Project 4 - Game Classes
 # Student Name: Anthony Wu
 # Student ID: wuant
+# Citation: This is taken from https://codereview.stackexchange.com/questions/216654/small-terminal-tic-tac-toe-game
+# with minor changes.
+# Provides OO classes for game logic 
+
 
 import os
 
@@ -53,6 +57,7 @@ class Board():
 
 
 class TicTacToe():
+    """Represents a game"""
     def __init__(self):
         #os.system("clear")
         self.board = Board()
@@ -88,6 +93,7 @@ class TicTacToe():
         return self.player_1_char
 
     def get_player_input(self, player_char):
+        """Ask the player to play a turn"""
         while True:
             while True:
                 x = input(f"{player_char}, where do you want to place your piece? ")
@@ -106,6 +112,7 @@ class TicTacToe():
                 print("Spot is taken, try again: ")
 
     def check_tie(self):
+        """Check if a tie occurred to end the game """
         if self.board.tie():
             self.board.game_over = True
             print("Game is a tie")
@@ -113,6 +120,7 @@ class TicTacToe():
         return False
 
     def run(self):
+        """Run the game"""
         self.board.draw_board()
 
         while not self.board.game_over:
